@@ -5,6 +5,7 @@ import { Results } from "@/components/Results";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { SectionDivider } from "@/components/SectionDivider";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <CTA />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
