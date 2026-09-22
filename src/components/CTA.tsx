@@ -4,32 +4,27 @@ import { useState } from "react";
 import { ScrollReveal } from "./ScrollReveal";
 import { formatPhoneBR } from "@/lib/formatPhone";
 import { createClient } from "@/lib/supabase/client";
+import { whatsappLink } from "@/lib/whatsapp";
 
-const CONTACT_EMAIL = "techvisions.oficial@gmail.com";
+type Status = "idle" | "sending" | "success" | "error";
 
 export function CTA() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setStatus("sending");
 
     const supabase = createClient();
-    supabase
+    const { error } = await supabase
       .from("leads")
-      .insert({ name, email, phone, message, source: "site" })
-      .then(({ error }) => {
-        if (error) console.error("Não foi possível registrar o lead:", error);
-      });
+      .insert({ name, email, phone, message, source: "site" });
 
-    const subject = `Contato via site — ${name}`;
-    const body = `Nome: ${name}\nE-mail: ${email}\nTelefone: ${phone}\n\nMensagem:\n${message}`;
-
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    setStatus(error ? "error" : "success");
   }
 
   return (
@@ -47,6 +42,28 @@ export function CTA() {
             gratuito e uma proposta sob medida.
           </p>
 
+          {status === "success" ? (
+            <div
+              role="status"
+              className="w-full max-w-xl rounded-2xl border border-accent/30 bg-accent/5 p-6"
+            >
+              <p className="font-display text-2xl">Recebemos seu contato!</p>
+              <p className="mt-2 text-paper/70">
+                Em breve retornamos com o diagnóstico gratuito. Se preferir
+                falar agora, chama a gente no WhatsApp.
+              </p>
+              <a
+                href={whatsappLink(
+                  `Olá! Acabei de enviar o formulário pelo site. Meu nome é ${name}.`
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-block rounded-full bg-accent px-6 py-3 text-sm font-medium text-ink transition-transform hover:scale-105"
+              >
+                Falar no WhatsApp
+              </a>
+            </div>
+          ) : (
           <form onSubmit={handleSubmit} className="flex w-full max-w-xl flex-col gap-4">
             <div className="grid gap-4 sm:grid-cols-3">
               <input
@@ -82,13 +99,21 @@ export function CTA() {
               onChange={(e) => setMessage(e.target.value)}
               className="resize-none rounded-xl border border-white/15 bg-white/[0.03] px-4 py-3 text-sm text-paper placeholder:text-paper/40 outline-none transition-colors focus:border-accent/50"
             />
+            {status === "error" && (
+              <p role="alert" className="text-sm text-red-400">
+                Não conseguimos enviar agora. Tente de novo ou fale com a gente
+                pelo WhatsApp.
+              </p>
+            )}
             <button
               type="submit"
-              className="w-fit rounded-full bg-accent px-8 py-4 text-sm font-medium text-ink transition-transform hover:scale-105"
+              disabled={status === "sending"}
+              className="w-fit rounded-full bg-accent px-8 py-4 text-sm font-medium text-ink transition-transform hover:scale-105 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
             >
-              Falar com a Tech Visions
+              {status === "sending" ? "Enviando…" : "Falar com a Tech Visions"}
             </button>
           </form>
+          )}
         </div>
       </ScrollReveal>
     </section>

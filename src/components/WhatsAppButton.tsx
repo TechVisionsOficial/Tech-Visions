@@ -1,9 +1,9 @@
-const PHONE_NUMBER = "5511924807054";
-const DEFAULT_MESSAGE =
-  "Olá! Vim pelo site e gostaria de saber mais sobre os serviços da Tech Visions.";
+import { whatsappLink } from "@/lib/whatsapp";
 
 export function WhatsAppButton() {
-  const href = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`;
+  const href = whatsappLink(
+    "Olá! Vim pelo site e gostaria de saber mais sobre os serviços da Tech Visions."
+  );
 
   return (
     <a
