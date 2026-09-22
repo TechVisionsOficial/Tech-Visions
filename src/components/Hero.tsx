@@ -11,7 +11,7 @@ const DIFFERENTIALS = [
 
 export function Hero() {
   return (
-    <section id="top" className="relative flex min-h-screen items-center overflow-hidden pb-16 pt-24">
+    <section id="top" className="relative flex min-h-svh items-center overflow-hidden pb-16 pt-24">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6">
         <motion.span
           initial={{ opacity: 0, y: 16 }}
@@ -79,10 +79,9 @@ export function Hero() {
         >
           {DIFFERENTIALS.map((item) => (
             <div key={item.label}>
-              <dt className="sr-only">{item.label}</dt>
-              <dd className="font-display text-xl text-accent sm:text-2xl">
+              <dt className="font-display text-xl text-accent sm:text-2xl">
                 {item.value}
-              </dd>
+              </dt>
               <dd className="mt-1 text-sm text-paper/60">{item.label}</dd>
             </div>
           ))}

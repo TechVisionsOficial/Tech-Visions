@@ -1,11 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export function SectionDivider() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <div className="relative mx-auto h-px w-full max-w-6xl overflow-hidden px-6">
       <div className="h-px w-full bg-white/10" />
+      {reduceMotion ? null : (
       <motion.div
         aria-hidden
         className="absolute inset-y-0 left-0 h-px w-1/3"
@@ -16,6 +19,7 @@ export function SectionDivider() {
         animate={{ x: ["-100%", "400%"] }}
         transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
       />
+      )}
     </div>
   );
 }
