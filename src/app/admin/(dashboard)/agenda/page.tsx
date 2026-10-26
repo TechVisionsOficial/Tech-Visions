@@ -19,6 +19,8 @@ const MONTH_LABELS = [
 
 const HOUR_HEIGHT = 48; // px per hour row in the week grid
 const GUTTER_WIDTH = 52; // px, the hour-labels column
+// Below this the 7 day columns get too narrow to read, so the grid scrolls sideways instead.
+const CALENDAR_MIN_WIDTH = 640;
 
 type Meeting = {
   id: string;
@@ -135,7 +137,7 @@ export default async function AgendaPage({
             href={`/admin/agenda?view=week&week=${prevWeek}`}
             className="text-sm text-ink/60 hover:text-ink"
           >
-            ← Semana anterior
+            ← <span className="hidden sm:inline">Semana anterior</span>
           </Link>
           <p className="text-sm font-medium">
             {days[0]} – {days[6]}
@@ -144,11 +146,12 @@ export default async function AgendaPage({
             href={`/admin/agenda?view=week&week=${nextWeek}`}
             className="text-sm text-ink/60 hover:text-ink"
           >
-            Próxima semana →
+            <span className="hidden sm:inline">Próxima semana</span> →
           </Link>
         </div>
 
-        <div className="mt-4 overflow-hidden rounded-xl border border-ink/10 bg-white">
+        <div className="mt-4 overflow-x-auto rounded-xl border border-ink/10 bg-white">
+          <div style={{ minWidth: CALENDAR_MIN_WIDTH }}>
           {/* Weekday header row, aligned with the hour columns below */}
           <div className="flex border-b border-ink/10">
             <div style={{ width: GUTTER_WIDTH }} className="shrink-0" />
@@ -254,6 +257,7 @@ export default async function AgendaPage({
               );
             })}
           </div>
+          </div>
         </div>
       </div>
     );
@@ -315,7 +319,8 @@ export default async function AgendaPage({
         </Link>
       </div>
 
-      <div className="mt-4 overflow-hidden rounded-xl border border-ink/10 bg-white">
+      <div className="mt-4 overflow-x-auto rounded-xl border border-ink/10 bg-white">
+        <div style={{ minWidth: CALENDAR_MIN_WIDTH }}>
         <div
           className="border-b border-ink/10 bg-ink/[0.02]"
           style={{ display: "grid", gridTemplateColumns: "repeat(7, minmax(0, 1fr))" }}
@@ -391,6 +396,7 @@ export default async function AgendaPage({
               </div>
             );
           })}
+        </div>
         </div>
       </div>
     </div>

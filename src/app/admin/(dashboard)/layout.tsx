@@ -1,8 +1,9 @@
 import { getUser } from "@/lib/auth/dal";
 import { logout } from "@/app/admin/login/actions";
-import { NavGroups } from "./NavGroups";
+import { MobileNav } from "./MobileNav";
+import { NavGroups, type NavGroup } from "./NavGroups";
 
-const NAV_GROUPS: { label?: string; items: { href: string; label: string }[] }[] = [
+const NAV_GROUPS: NavGroup[] = [
   {
     items: [
       { href: "/admin", label: "Início" },
@@ -44,8 +45,9 @@ export default async function DashboardLayout({
   const user = await getUser();
 
   return (
-    <div className="flex min-h-screen">
-      <aside className="flex w-60 shrink-0 flex-col border-r border-ink/10 bg-white px-5 py-6">
+    <div className="min-h-screen md:flex">
+      <MobileNav groups={NAV_GROUPS} email={user.email} />
+      <aside className="hidden w-60 shrink-0 flex-col border-r border-ink/10 bg-white px-5 py-6 md:flex">
         <span className="font-display text-lg font-medium">tech·visions</span>
         <NavGroups groups={NAV_GROUPS} />
         <div className="mt-auto border-t border-ink/10 pt-4">
@@ -60,7 +62,7 @@ export default async function DashboardLayout({
           </form>
         </div>
       </aside>
-      <main className="flex-1 px-8 py-8">{children}</main>
+      <main className="min-w-0 flex-1 px-4 py-6 md:px-8 md:py-8">{children}</main>
     </div>
   );
 }

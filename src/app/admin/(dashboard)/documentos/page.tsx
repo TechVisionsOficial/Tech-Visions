@@ -14,7 +14,7 @@ export default async function DocumentosPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="font-display text-2xl font-medium">Documentos</h1>
         <Link
           href="/admin/documentos/new"

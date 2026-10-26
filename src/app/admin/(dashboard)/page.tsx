@@ -22,7 +22,7 @@ export default async function AdminHome() {
   return (
     <div>
       <div className="py-10">
-        <h1 className="font-display text-4xl font-medium sm:text-5xl">
+        <h1 className="font-display text-3xl font-medium sm:text-4xl md:text-5xl">
           Bem-vindo ao Painel Admin da Tech Visions!
         </h1>
         <p className="mt-3 text-base text-ink/60">

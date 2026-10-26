@@ -4,9 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
-type NavGroup = { label?: string; items: { href: string; label: string }[] };
+export type NavGroup = { label?: string; items: { href: string; label: string }[] };
 
-export function NavGroups({ groups }: { groups: NavGroup[] }) {
+export function NavGroups({
+  groups,
+  onNavigate,
+}: {
+  groups: NavGroup[];
+  onNavigate?: () => void;
+}) {
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
 
   return (
@@ -19,6 +25,7 @@ export function NavGroups({ groups }: { groups: NavGroup[] }) {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={onNavigate}
                   className="rounded-lg px-3 py-2 text-sm text-ink/70 transition-colors hover:bg-ink/5 hover:text-ink"
                 >
                   {item.label}
@@ -62,6 +69,7 @@ export function NavGroups({ groups }: { groups: NavGroup[] }) {
                       <Link
                         key={item.href}
                         href={item.href}
+                        onClick={onNavigate}
                         className="rounded-lg px-3 py-2 text-sm text-ink/70 transition-colors hover:bg-ink/5 hover:text-ink"
                       >
                         {item.label}
