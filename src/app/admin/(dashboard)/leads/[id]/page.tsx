@@ -26,7 +26,7 @@ export default async function LeadDetailPage({
 
   return (
     <div className="max-w-xl">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="font-display text-2xl font-medium">{lead.name}</h1>
         <StageSelect id={lead.id} stage={lead.stage} />
       </div>

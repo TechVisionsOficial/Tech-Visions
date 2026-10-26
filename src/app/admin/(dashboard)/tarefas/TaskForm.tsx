@@ -55,7 +55,7 @@ export function TaskForm({
           className={inputClass}
         />
       </FormField>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <FormField label="Prazo" htmlFor="due_date" errors={state?.errors?.due_date}>
           <input
             id="due_date"

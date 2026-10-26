@@ -33,17 +33,20 @@ export function KanbanBoard({ leads }: { leads: Lead[] }) {
   const [draggingId, setDraggingId] = useState<string | null>(null);
   const [, startTransition] = useTransition();
 
-  function handleDrop(stage: string) {
-    if (!draggingId) return;
-    const id = draggingId;
-    setDraggingId(null);
-
+  function moveLead(id: string, stage: string) {
     setItems((prev) =>
       prev.map((lead) => (lead.id === id ? { ...lead, stage } : lead))
     );
     startTransition(() => {
       moveLeadStage(id, stage);
     });
+  }
+
+  function handleDrop(stage: string) {
+    if (!draggingId) return;
+    const id = draggingId;
+    setDraggingId(null);
+    moveLead(id, stage);
   }
 
   return (
@@ -89,6 +92,19 @@ export function KanbanBoard({ leads }: { leads: Lead[] }) {
                 <p className="mt-1 text-xs text-ink/40">
                   {SOURCE_LABELS[lead.source] ?? lead.source}
                 </p>
+                {/* HTML5 drag-and-drop doesn't fire on iOS touch, so phones move leads with this instead. */}
+                <select
+                  aria-label={`Mover ${lead.name} para outra etapa`}
+                  value={lead.stage}
+                  onChange={(e) => moveLead(lead.id, e.target.value)}
+                  className="mt-2 w-full rounded-md border border-ink/15 bg-white px-2 py-1.5 text-base text-ink md:hidden"
+                >
+                  {STAGES.map((stage) => (
+                    <option key={stage.value} value={stage.value}>
+                      {stage.label}
+                    </option>
+                  ))}
+                </select>
               </div>
             ))}
           </div>

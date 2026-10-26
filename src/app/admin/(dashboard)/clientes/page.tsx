@@ -14,7 +14,7 @@ export default async function ClientesPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="font-display text-2xl font-medium">Clientes</h1>
         <Link
           href="/admin/clientes/new"
