@@ -34,6 +34,12 @@ export function Footer() {
               <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
             </svg>
           </Link>
+          <Link href="/privacidade" className="text-sm text-paper/50 transition-colors hover:text-paper">
+            Privacidade
+          </Link>
+          <Link href="/termos" className="text-sm text-paper/50 transition-colors hover:text-paper">
+            Termos
+          </Link>
           <p className="text-sm text-paper/40">
             © {new Date().getFullYear()} Tech Visions. Todos os direitos reservados.
           </p>
