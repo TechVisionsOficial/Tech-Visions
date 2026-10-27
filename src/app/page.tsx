@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
+import { Products } from "@/components/Products";
 import { Results } from "@/components/Results";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
@@ -45,6 +46,8 @@ export default function Home() {
         <Hero />
         <SectionDivider />
         <Services />
+        <SectionDivider />
+        <Products />
         <SectionDivider />
         <Results />
         <SectionDivider />

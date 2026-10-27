@@ -6,6 +6,7 @@ import { smoothScrollTo } from "@/lib/smoothScroll";
 
 const LINKS = [
   { href: "#servicos", label: "Serviços" },
+  { href: "#produtos", label: "Produtos" },
   { href: "#resultados", label: "Resultados" },
   { href: "#contato", label: "Contato" },
 ];
