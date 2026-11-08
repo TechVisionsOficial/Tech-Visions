@@ -3,6 +3,7 @@ import { getUser } from "@/lib/auth/dal";
 import { createClient } from "@/lib/supabase/server";
 import { formatBytes } from "@/lib/formatBytes";
 import { deleteDocumentRecord } from "../actions";
+import { buttonPrimary } from "@/components/admin/buttons";
 
 export default async function DocumentDetailPage({
   params,
@@ -47,7 +48,7 @@ export default async function DocumentDetailPage({
       <div className="mt-6">
         <a
           href={`/admin/documentos/${id}/download`}
-          className="w-fit rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper"
+          className={`${buttonPrimary} w-fit px-5 py-2.5`}
         >
           Baixar
         </a>

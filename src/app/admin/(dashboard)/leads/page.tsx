@@ -20,7 +20,7 @@ export default async function LeadsPage() {
 
       <div className="mt-6">
         {!leads?.length ? (
-          <p className="rounded-xl border border-ink/10 bg-white p-10 text-center text-sm text-ink/50">
+          <p className="rounded-[3px] border border-ink/10 bg-white p-10 text-center text-sm text-ink/50">
             Nenhum lead cadastrado ainda.
           </p>
         ) : (

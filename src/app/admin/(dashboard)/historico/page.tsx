@@ -37,7 +37,7 @@ export default async function HistoricoPage() {
       <h1 className="font-display text-2xl font-medium">Histórico</h1>
       <p className="mt-1 text-sm text-ink/50">Últimas 100 atividades registradas.</p>
 
-      <div className="mt-6 flex flex-col divide-y divide-ink/10 rounded-xl border border-ink/10 bg-white">
+      <div className="mt-6 flex flex-col divide-y divide-ink/10 rounded-[3px] border border-ink/10 bg-white">
         {!activities?.length && (
           <p className="p-6 text-sm text-ink/50">Nenhuma atividade registrada ainda.</p>
         )}

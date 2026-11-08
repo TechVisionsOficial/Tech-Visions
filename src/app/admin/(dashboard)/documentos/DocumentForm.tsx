@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { FormField, inputClass } from "@/components/admin/FormField";
 import type { DocumentFormState } from "@/lib/validation/document";
+import { buttonPrimary } from "@/components/admin/buttons";
 
 export function DocumentForm({
   action,
@@ -54,7 +55,7 @@ export function DocumentForm({
       <button
         type="submit"
         disabled={pending}
-        className="w-fit rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-opacity disabled:opacity-50"
+        className={`${buttonPrimary} w-fit px-5 py-2.5`}
       >
         {pending ? "Enviando…" : "Enviar"}
       </button>

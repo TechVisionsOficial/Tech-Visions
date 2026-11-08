@@ -99,14 +99,14 @@ export default async function DashboardsPage() {
     <div>
       <h1 className="font-display text-2xl font-medium">Dashboards</h1>
 
-      <h2 className="mt-8 text-sm font-medium uppercase tracking-wide text-ink/50">
+      <h2 className="mt-8 border-b-2 border-ink pb-2 font-display text-lg font-bold uppercase tracking-[0.06em]">
         Financeiro
       </h2>
       <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {financeCards.map((card) => (
           <div
             key={card.label}
-            className="rounded-xl border border-ink/10 bg-white p-5"
+            className="rounded-[3px] border border-ink/10 bg-white p-5"
           >
             <p className="text-sm text-ink/50">{card.label}</p>
             <p className="mt-2 font-display text-2xl font-medium">{card.value}</p>
@@ -115,7 +115,7 @@ export default async function DashboardsPage() {
         ))}
       </div>
 
-      <h2 className="mt-10 text-sm font-medium uppercase tracking-wide text-ink/50">
+      <h2 className="mt-10 border-b-2 border-ink pb-2 font-display text-lg font-bold uppercase tracking-[0.06em]">
         Operação
       </h2>
       <div className="mt-3 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -123,7 +123,7 @@ export default async function DashboardsPage() {
           <Link
             key={card.href}
             href={card.href}
-            className="rounded-xl border border-ink/10 bg-white p-5 transition-colors hover:border-ink/25"
+            className="rounded-[3px] border border-ink/10 bg-white p-5 transition-colors hover:border-ink/25"
           >
             <p className="font-display text-3xl font-medium">{card.count}</p>
             <p className="mt-1 text-sm text-ink/60">{card.label}</p>

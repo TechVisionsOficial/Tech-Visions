@@ -58,14 +58,14 @@ export function KanbanBoard({ leads }: { leads: Lead[] }) {
             key={column.value}
             onDragOver={(e) => e.preventDefault()}
             onDrop={() => handleDrop(column.value)}
-            className="flex min-w-0 flex-col gap-3 rounded-xl bg-ink/5 p-3"
+            className="flex min-w-0 flex-col gap-3 rounded-[3px] bg-ink/5 p-3"
           >
-            <p className="px-1 text-xs font-medium uppercase tracking-wide text-ink/50">
+            <p className="px-1 font-display text-sm font-bold uppercase tracking-[0.08em] text-ink/60">
               {column.label} · {columnLeads.length}
             </p>
 
             {columnLeads.length === 0 && (
-              <div className="rounded-lg border border-dashed border-ink/15 p-4 text-center text-xs text-ink/30">
+              <div className="rounded-[3px] border border-dashed border-ink/15 p-4 text-center text-xs text-ink/30">
                 Solte um lead aqui
               </div>
             )}
@@ -76,7 +76,7 @@ export function KanbanBoard({ leads }: { leads: Lead[] }) {
                 draggable
                 onDragStart={() => setDraggingId(lead.id)}
                 onDragEnd={() => setDraggingId(null)}
-                className={`cursor-grab rounded-lg border border-ink/10 bg-white p-3 text-sm shadow-sm transition-opacity active:cursor-grabbing ${
+                className={`cursor-grab rounded-[3px] border border-ink/10 bg-white p-3 text-sm shadow-sm transition-opacity active:cursor-grabbing ${
                   draggingId === lead.id ? "opacity-40" : ""
                 }`}
               >

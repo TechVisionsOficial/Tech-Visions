@@ -4,6 +4,7 @@ import { useActionState, useState } from "react";
 import { inputClass } from "@/components/admin/FormField";
 import { formatPhoneBR } from "@/lib/formatPhone";
 import { createLeadRecord } from "./actions";
+import { buttonPrimary } from "@/components/admin/buttons";
 
 export function NewLeadForm() {
   const [open, setOpen] = useState(false);
@@ -14,7 +15,7 @@ export function NewLeadForm() {
     return (
       <button
         onClick={() => setOpen(true)}
-        className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper"
+        className={`${buttonPrimary} px-4 py-2`}
       >
         Novo lead
       </button>
@@ -24,7 +25,7 @@ export function NewLeadForm() {
   return (
     <form
       action={formAction}
-      className="mb-6 grid gap-3 rounded-xl border border-ink/10 bg-white p-5 sm:grid-cols-2"
+      className="mb-6 grid gap-3 rounded-[3px] border border-ink/10 bg-white p-5 sm:grid-cols-2"
     >
       <input
         name="name"
@@ -60,7 +61,7 @@ export function NewLeadForm() {
         <button
           type="submit"
           disabled={pending}
-          className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper disabled:opacity-50"
+          className={`${buttonPrimary} px-4 py-2`}
         >
           {pending ? "Salvando…" : "Salvar lead"}
         </button>

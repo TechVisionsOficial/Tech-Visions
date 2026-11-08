@@ -3,6 +3,7 @@ import { getUser } from "@/lib/auth/dal";
 import { createClient } from "@/lib/supabase/server";
 import { DataTable, Th, Td, EmptyRow } from "@/components/admin/DataTable";
 import { StatusBadge } from "@/components/admin/StatusBadge";
+import { buttonPrimary } from "@/components/admin/buttons";
 
 export default async function ClientesPage() {
   await getUser();
@@ -18,7 +19,7 @@ export default async function ClientesPage() {
         <h1 className="font-display text-2xl font-medium">Clientes</h1>
         <Link
           href="/admin/clientes/new"
-          className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper"
+          className={`${buttonPrimary} px-4 py-2`}
         >
           Novo cliente
         </Link>

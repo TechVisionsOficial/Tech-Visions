@@ -1,6 +1,21 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { whatsappLink } from "@/lib/whatsapp";
 
+// Appears once the shopfront (which already holds the form) has scrolled away,
+// so it never sits on top of the balcão's button on a phone.
 export function WhatsAppButton() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const sign = document.getElementById("letreiro");
+    if (!sign) return;
+    const io = new IntersectionObserver(([entry]) => setVisible(!entry.isIntersecting));
+    io.observe(sign);
+    return () => io.disconnect();
+  }, []);
+
   const href = whatsappLink(
     "Olá! Vim pelo site e gostaria de saber mais sobre os serviços da Tech Visions."
   );
@@ -11,7 +26,9 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-ink shadow-lg shadow-black/30 transition-transform hover:scale-105"
+      tabIndex={visible ? undefined : -1}
+      aria-hidden={visible ? undefined : true}
+      className={`${visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"} fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-5 z-40 flex h-14 w-14 items-center justify-center rounded-[3px] border-2 border-ink bg-paper text-ink shadow-[0_10px_28px_-8px_rgba(0,0,0,0.55)] transition-[transform,background-color,opacity] duration-300 ease-out-expo hover:bg-white active:scale-[0.94]`}
     >
       <svg
         viewBox="0 0 24 24"
