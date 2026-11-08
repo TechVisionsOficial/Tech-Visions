@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { login } from "./actions";
 import { inputClass } from "@/components/admin/FormField";
+import { buttonPrimary } from "@/components/admin/buttons";
 
 export function LoginForm() {
   const [state, formAction, pending] = useActionState(login, undefined);
@@ -39,7 +40,7 @@ export function LoginForm() {
       <button
         type="submit"
         disabled={pending}
-        className="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-opacity disabled:opacity-50"
+        className={`${buttonPrimary} px-5 py-2.5`}
       >
         {pending ? "Entrando…" : "Entrar"}
       </button>

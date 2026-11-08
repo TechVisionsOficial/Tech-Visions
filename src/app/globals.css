@@ -1,10 +1,27 @@
 @import "tailwindcss";
 
+/*
+  Porta de aço — the site is a São Paulo shopfront.
+  Graphite steel, an off-white letreiro, stencil-painted notices.
+  Still monochrome: every value below is a tint of ink or paper.
+*/
 :root {
   --ink: #1a1a1a;
   --paper: #f7f6f4;
   --accent: #f7f6f4;
   --muted: #8a8a86;
+
+  /* Steel: the shutter, the jambs, the walls. */
+  --steel-deep: #141414;
+  --steel-dark: #222221;
+  --steel: #2a2a29;
+  --steel-light: #3a3a38;
+  --steel-edge: #4a4a47;
+
+  /* One rib of the corrugated shutter. Everything that repeats snaps to it. */
+  --rib: 28px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
@@ -12,8 +29,15 @@
   --color-paper: var(--paper);
   --color-accent: var(--accent);
   --color-muted: var(--muted);
+  --color-steel-deep: var(--steel-deep);
+  --color-steel-dark: var(--steel-dark);
+  --color-steel: var(--steel);
+  --color-steel-light: var(--steel-light);
+  --color-steel-edge: var(--steel-edge);
   --font-sans: var(--font-inter);
-  --font-display: var(--font-space-grotesk);
+  --font-display: var(--font-big-shoulders);
+  --font-stencil: var(--font-big-shoulders-stencil);
+  --ease-out-expo: var(--ease-out);
 }
 
 body {
@@ -22,12 +46,100 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
+/* Corrugated steel. Ribs are drawn from the bottom edge so the bar at the
+   foot of the door always meets a whole rib, at any height. */
+.steel-ribs {
+  background-color: var(--steel);
+  background-image: repeating-linear-gradient(
+    0deg,
+    var(--steel) 0,
+    var(--steel) calc(var(--rib) - 6px),
+    var(--steel-dark) calc(var(--rib) - 6px),
+    var(--steel-dark) calc(var(--rib) - 2px),
+    var(--steel-light) calc(var(--rib) - 2px),
+    var(--steel-light) var(--rib)
+  );
+  background-position: bottom;
+}
+
+/* Letreiro type: tall caps, set tight like painted sheet-metal letters. */
+.letreiro {
+  font-family: var(--font-big-shoulders), sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.92;
+}
+
+.estencil {
+  font-family: var(--font-big-shoulders-stencil), sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 0.9;
+}
+
+/* Browser surfaces carry the palette too. */
+::selection {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+html {
+  scrollbar-color: var(--steel-edge) var(--ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+textarea {
+  caret-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Painel admin: paper workspace on a steel rail. */
+.admin-shell ::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.admin-shell {
+  scrollbar-color: rgb(26 26 26 / 0.25) transparent;
+}
+
+.admin-shell table {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Page titles in the admin read as small letreiros. */
+.admin-shell h1.font-display,
+.admin-shell h2.font-display {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
 /* Páginas legais (privacidade, termos) */
 .legal h2 {
   margin-top: 2.5rem;
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 1.35rem;
-  font-weight: 500;
+  font-family: var(--font-big-shoulders), sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
   color: var(--paper);
 }
 .legal ul {

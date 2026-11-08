@@ -26,14 +26,17 @@ export function LegalPage({
               className="h-[30px] w-auto select-none"
             />
           </Link>
-          <Link href="/" className="text-sm text-paper/60 transition-colors hover:text-paper">
-            ← Voltar ao site
+          <Link href="/" className="inline-flex items-center gap-1.5 rounded-[3px] font-display text-lg font-bold uppercase tracking-[0.06em] text-paper/65 transition-colors hover:text-paper">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden className="h-4 w-4">
+              <path d="M12.5 8h-9M7 4.5L3.5 8 7 11.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="square" />
+            </svg>
+            Voltar ao site
           </Link>
         </div>
       </header>
       <main className="flex-1 px-6 py-16">
         <article className="legal mx-auto max-w-3xl">
-          <h1 className="font-display text-4xl font-medium tracking-tight sm:text-5xl">{title}</h1>
+          <h1 className="letreiro text-5xl sm:text-6xl">{title}</h1>
           <p className="mt-3 text-sm text-paper/50">Última atualização: {updatedAt}</p>
           <div className="mt-10 space-y-5 leading-relaxed text-paper/75">{children}</div>
         </article>

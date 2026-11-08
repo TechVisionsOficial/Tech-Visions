@@ -2,15 +2,15 @@ import type { ReactNode } from "react";
 
 export function DataTable({ children }: { children: ReactNode }) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-ink/10 bg-white">
-      <table className="w-full text-left text-sm">{children}</table>
+    <div className="overflow-x-auto rounded-[3px] border border-ink/15 bg-white">
+      <table className="w-full text-left text-sm [&_tbody_tr]:transition-colors [&_tbody_tr:hover]:bg-ink/[0.025]">{children}</table>
     </div>
   );
 }
 
 export function Th({ children }: { children: ReactNode }) {
   return (
-    <th className="border-b border-ink/10 px-4 py-3 text-xs font-medium uppercase tracking-wide text-ink/50">
+    <th className="border-b-2 border-ink bg-paper px-4 py-3 font-display text-sm font-bold uppercase tracking-[0.06em] text-ink/70">
       {children}
     </th>
   );

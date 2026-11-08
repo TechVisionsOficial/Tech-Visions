@@ -1,11 +1,15 @@
 import { LoginForm } from "./LoginForm";
+import { Wordmark } from "@/components/Wordmark";
 
+// The way in: the counter in front of a shut steel door.
 export default function LoginPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center px-6">
-      <div className="w-full max-w-sm rounded-2xl border border-ink/10 bg-white p-8 shadow-sm">
-        <h1 className="font-display text-2xl font-medium">tech·visions</h1>
-        <p className="mt-1 text-sm text-ink/60">Painel interno</p>
+    <div className="steel-ribs flex min-h-screen items-center justify-center px-5 py-10">
+      <div className="w-full max-w-sm rounded-[3px] border-t-[8px] border-ink bg-paper p-8 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.7)]">
+        <h1>
+          <Wordmark className="h-8 w-auto text-ink" />
+        </h1>
+        <p className="mt-3 font-display text-lg font-bold uppercase tracking-[0.08em] text-ink/60">Painel interno</p>
         <div className="mt-6">
           <LoginForm />
         </div>

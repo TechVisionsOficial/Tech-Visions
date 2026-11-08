@@ -2,6 +2,7 @@ import { getUser } from "@/lib/auth/dal";
 import { logout } from "@/app/admin/login/actions";
 import { MobileNav } from "./MobileNav";
 import { NavGroups, type NavGroup } from "./NavGroups";
+import { Wordmark } from "@/components/Wordmark";
 
 const NAV_GROUPS: NavGroup[] = [
   {
@@ -47,15 +48,15 @@ export default async function DashboardLayout({
   return (
     <div className="min-h-screen md:flex">
       <MobileNav groups={NAV_GROUPS} email={user.email} />
-      <aside className="hidden w-60 shrink-0 flex-col border-r border-ink/10 bg-white px-5 py-6 md:flex">
-        <span className="font-display text-lg font-medium">tech·visions</span>
+      <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col overflow-y-auto bg-ink px-5 py-6 text-paper md:flex">
+        <Wordmark className="h-7 w-auto self-start" />
         <NavGroups groups={NAV_GROUPS} />
-        <div className="mt-auto border-t border-ink/10 pt-4">
-          <p className="truncate text-xs text-ink/50">{user.email}</p>
+        <div className="mt-auto border-t border-paper/15 pt-4">
+          <p className="truncate text-xs text-paper/50">{user.email}</p>
           <form action={logout}>
             <button
               type="submit"
-              className="mt-2 text-sm text-ink/70 transition-colors hover:text-ink"
+              className="mt-2 text-sm text-paper/70 transition-colors hover:text-paper"
             >
               Sair
             </button>

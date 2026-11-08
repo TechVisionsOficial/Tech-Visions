@@ -106,7 +106,7 @@ export default async function DashboardsPage() {
         {financeCards.map((card) => (
           <div
             key={card.label}
-            className="rounded-xl border border-ink/10 bg-white p-5"
+            className="rounded-[3px] border border-ink/10 bg-white p-5"
           >
             <p className="text-sm text-ink/50">{card.label}</p>
             <p className="mt-2 font-display text-2xl font-medium">{card.value}</p>
@@ -123,7 +123,7 @@ export default async function DashboardsPage() {
           <Link
             key={card.href}
             href={card.href}
-            className="rounded-xl border border-ink/10 bg-white p-5 transition-colors hover:border-ink/25"
+            className="rounded-[3px] border border-ink/10 bg-white p-5 transition-colors hover:border-ink/25"
           >
             <p className="font-display text-3xl font-medium">{card.count}</p>
             <p className="mt-1 text-sm text-ink/60">{card.label}</p>

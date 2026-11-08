@@ -1,11 +1,10 @@
-import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { Services } from "@/components/Services";
-import { Products } from "@/components/Products";
-import { Results } from "@/components/Results";
-import { CTA } from "@/components/CTA";
+import { Fachada } from "@/components/Fachada";
+import { LetreiroFixo } from "@/components/Letreiro";
+import { Quadro } from "@/components/Quadro";
+import { Vitrine } from "@/components/Vitrine";
+import { ClienteDaCasa } from "@/components/ClienteDaCasa";
+import { Balcao } from "@/components/Balcao";
 import { Footer } from "@/components/Footer";
-import { SectionDivider } from "@/components/SectionDivider";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const SITE_URL = "https://www.techvisions.com.br";
@@ -41,17 +40,13 @@ export default function Home() {
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <Header />
+      <LetreiroFixo />
       <main className="flex-1">
-        <Hero />
-        <SectionDivider />
-        <Services />
-        <SectionDivider />
-        <Products />
-        <SectionDivider />
-        <Results />
-        <SectionDivider />
-        <CTA />
+        <Fachada />
+        <Quadro />
+        <Vitrine />
+        <ClienteDaCasa />
+        <Balcao />
       </main>
       <Footer />
       <WhatsAppButton />

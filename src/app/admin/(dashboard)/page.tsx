@@ -1,19 +1,53 @@
 import Link from "next/link";
 import { getUser } from "@/lib/auth/dal";
 
-const ACTIONS = [
-  { label: "Novo cliente", href: "/admin/clientes/new" },
-  { label: "Novo projeto", href: "/admin/projetos/new" },
-  { label: "Nova tarefa", href: "/admin/tarefas/new" },
-  { label: "Ver leads", href: "/admin/leads" },
-  { label: "Novo contrato", href: "/admin/contratos/new" },
-  { label: "Novo orçamento", href: "/admin/orcamentos/new" },
-  { label: "Nova mensalidade", href: "/admin/mensalidades/new" },
-  { label: "Nova reunião", href: "/admin/agenda/new" },
-  { label: "Novo documento", href: "/admin/documentos/new" },
-  { label: "Ver histórico", href: "/admin/historico" },
-  { label: "Ver dashboards", href: "/admin/dashboards" },
+type Action = { label: string; href: string; kind: "create" | "view" };
+
+const ACTION_GROUPS: { label: string; actions: Action[] }[] = [
+  {
+    label: "Operação",
+    actions: [
+      { label: "Novo cliente", href: "/admin/clientes/new", kind: "create" },
+      { label: "Novo projeto", href: "/admin/projetos/new", kind: "create" },
+      { label: "Nova tarefa", href: "/admin/tarefas/new", kind: "create" },
+      { label: "Ver leads", href: "/admin/leads", kind: "view" },
+    ],
+  },
+  {
+    label: "Finanças",
+    actions: [
+      { label: "Novo contrato", href: "/admin/contratos/new", kind: "create" },
+      { label: "Novo orçamento", href: "/admin/orcamentos/new", kind: "create" },
+      { label: "Nova mensalidade", href: "/admin/mensalidades/new", kind: "create" },
+      { label: "Ver dashboards", href: "/admin/dashboards", kind: "view" },
+    ],
+  },
+  {
+    label: "Organização",
+    actions: [
+      { label: "Nova reunião", href: "/admin/agenda/new", kind: "create" },
+      { label: "Novo documento", href: "/admin/documentos/new", kind: "create" },
+      { label: "Ver histórico", href: "/admin/historico", kind: "view" },
+    ],
+  },
 ];
+
+function ActionIcon({ kind }: { kind: Action["kind"] }) {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden
+      className="h-4 w-4 shrink-0 text-ink/40 transition-colors duration-150 group-hover:text-ink"
+    >
+      {kind === "create" ? (
+        <path d="M8 3.5v9M3.5 8h9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="square" />
+      ) : (
+        <path d="M3.5 8h9M9 4.5L12.5 8 9 11.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="square" />
+      )}
+    </svg>
+  );
+}
 
 export default async function AdminHome() {
   const user = await getUser();
@@ -22,7 +56,7 @@ export default async function AdminHome() {
   return (
     <div>
       <div className="py-10">
-        <h1 className="font-display text-3xl font-medium sm:text-4xl md:text-5xl">
+        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl">
           Bem-vindo ao Painel Admin da Tech Visions!
         </h1>
         <p className="mt-3 text-base text-ink/60">
@@ -30,18 +64,28 @@ export default async function AdminHome() {
         </p>
       </div>
 
-      <p className="text-sm font-medium uppercase tracking-wide text-ink/50">
-        Ações rápidas
-      </p>
-      <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {ACTIONS.map((action) => (
-          <Link
-            key={action.href}
-            href={action.href}
-            className="rounded-xl border border-ink/10 bg-white p-5 text-sm font-medium transition-colors hover:border-ink/25"
-          >
-            {action.label}
-          </Link>
+      <div className="flex flex-col gap-8">
+        {ACTION_GROUPS.map((group) => (
+          <section key={group.label} aria-labelledby={`acoes-${group.label}`}>
+            <h2
+              id={`acoes-${group.label}`}
+              className="border-b-2 border-ink pb-2 font-display text-lg font-bold uppercase tracking-[0.06em]"
+            >
+              {group.label}
+            </h2>
+            <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {group.actions.map((action) => (
+                <Link
+                  key={action.href}
+                  href={action.href}
+                  className="group flex items-center justify-between gap-3 rounded-[3px] border border-ink/15 bg-white px-5 py-4 text-sm font-medium transition-[border-color,transform] duration-150 ease-out-expo hover:border-ink active:scale-[0.98]"
+                >
+                  {action.label}
+                  <ActionIcon kind={action.kind} />
+                </Link>
+              ))}
+            </div>
+          </section>
         ))}
       </div>
     </div>

@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { FormField, inputClass } from "@/components/admin/FormField";
 import type { QuoteFormState } from "@/lib/validation/quote";
+import { buttonPrimary } from "@/components/admin/buttons";
 
 type QuoteDefaults = {
   client_id?: string | null;
@@ -108,7 +109,7 @@ export function QuoteForm({
       <button
         type="submit"
         disabled={pending}
-        className="w-fit rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-opacity disabled:opacity-50"
+        className={`${buttonPrimary} w-fit px-5 py-2.5`}
       >
         {pending ? "Salvando…" : "Salvar"}
       </button>
