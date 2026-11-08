@@ -5,7 +5,7 @@ import { Wordmark } from "@/components/Wordmark";
 export default function LoginPage() {
   return (
     <div className="steel-ribs flex min-h-screen items-center justify-center px-5 py-10">
-      <div className="w-full max-w-sm rounded-[3px] border-t-[8px] border-ink bg-paper p-8 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.7)]">
+      <div className="w-full max-w-sm rounded-[3px] border-t-[8px] border-ink bg-paper p-8">
         <h1>
           <Wordmark className="h-8 w-auto text-ink" />
         </h1>

@@ -8,6 +8,3 @@ export const buttonInk = `${base} bg-ink text-paper hover:bg-steel-light`;
 
 /** Paper plate, for steel and dark surfaces. */
 export const buttonPaper = `${base} bg-paper text-ink hover:bg-white`;
-
-/** Outlined plate on dark surfaces. */
-export const buttonOutline = `${base} border-2 border-paper/40 text-paper hover:border-paper hover:bg-paper/[0.06]`;
