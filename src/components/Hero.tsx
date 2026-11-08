@@ -1,92 +1,84 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { MotionConfig, motion } from "framer-motion";
 import { smoothScrollTo } from "@/lib/smoothScroll";
+import { primaryButton, secondaryButton } from "./buttons";
 
 const DIFFERENTIALS = [
   { value: "Tudo integrado", label: "Site, Meta Ads e Google Ads num só parceiro" },
   { value: "Direto com quem faz", label: "Sem intermediários, sem enrolação" },
+  { value: "Ferramentas próprias", label: "Produtos como o Órbita, feitos aqui dentro" },
   { value: "Suporte contínuo", label: "Acompanhamento depois da entrega" },
 ];
 
+const EASE_OUT = [0.16, 1, 0.3, 1] as const;
+
+// One authored entrance: each block rises a little, in reading order.
+function enter(step: number) {
+  return {
+    initial: { opacity: 0, y: 14 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, delay: 0.08 + step * 0.09, ease: EASE_OUT },
+  };
+}
+
 export function Hero() {
   return (
-    <section id="top" className="relative flex min-h-svh items-center overflow-hidden pb-16 pt-24">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6">
-        <motion.span
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="w-fit rounded-full border border-white/15 px-4 py-1.5 text-xs uppercase tracking-widest text-paper/60"
-        >
-          Sites · Meta Ads · Google Ads
-        </motion.span>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="max-w-3xl font-display text-5xl font-medium leading-[1.05] tracking-tight sm:text-6xl md:text-7xl"
-        >
-          Tecnologia que{" "}
-          <span className="text-accent">converte visitas</span> em clientes.
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="max-w-xl text-lg text-paper/70"
-        >
-          A Tech Visions constrói sites de alta performance e gerencia
-          campanhas de Meta e Google Ads que trazem resultado real, não só
-          tráfego.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="flex flex-wrap gap-4"
-        >
-          <a
-            href="#contato"
-            onClick={(e) => {
-              e.preventDefault();
-              smoothScrollTo("contato");
-            }}
-            className="rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-ink transition-transform hover:scale-105"
+    <MotionConfig reducedMotion="user">
+      <section id="top" className="relative flex min-h-svh items-center overflow-hidden pb-16 pt-28">
+        <div className="mx-auto flex w-full max-w-6xl flex-col px-6">
+          <motion.h1
+            {...enter(0)}
+            className="max-w-3xl font-display text-5xl font-medium leading-[1.04] tracking-[-0.03em] sm:text-6xl md:text-7xl"
           >
-            Pedir orçamento
-          </a>
-          <a
-            href="#resultados"
-            onClick={(e) => {
-              e.preventDefault();
-              smoothScrollTo("resultados");
-            }}
-            className="rounded-full border border-white/20 px-7 py-3.5 text-sm font-medium text-paper transition-colors hover:border-white/40"
-          >
-            Ver resultados
-          </a>
-        </motion.div>
+            Tecnologia que converte visitas em clientes.
+          </motion.h1>
 
-        <motion.dl
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="mt-6 grid max-w-3xl grid-cols-1 gap-6 border-t border-white/10 pt-8 sm:grid-cols-3"
-        >
-          {DIFFERENTIALS.map((item) => (
-            <div key={item.label}>
-              <dt className="font-display text-xl text-accent sm:text-2xl">
-                {item.value}
-              </dt>
-              <dd className="mt-1 text-sm text-paper/60">{item.label}</dd>
-            </div>
-          ))}
-        </motion.dl>
-      </div>
-    </section>
+          <motion.p {...enter(1)} className="mt-6 max-w-xl text-lg leading-relaxed text-paper/70">
+            A Tech Visions constrói sites de alta performance e gerencia
+            campanhas de Meta e Google Ads que trazem resultado real, não só
+            tráfego.
+          </motion.p>
+
+          <motion.div {...enter(2)} className="mt-10 flex flex-wrap gap-3">
+            <a
+              href="#contato"
+              onClick={(e) => {
+                e.preventDefault();
+                smoothScrollTo("contato");
+              }}
+              className={`${primaryButton} px-7 py-3.5`}
+            >
+              Pedir orçamento
+            </a>
+            <a
+              href="#resultados"
+              onClick={(e) => {
+                e.preventDefault();
+                smoothScrollTo("resultados");
+              }}
+              className={`${secondaryButton} px-7 py-3.5`}
+            >
+              Ver resultados
+            </a>
+          </motion.div>
+
+          <motion.dl
+            {...enter(3)}
+            className="mt-16 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-white/10 pt-8 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {DIFFERENTIALS.map((item) => (
+              <div key={item.value}>
+                <dt className="flex items-center gap-2.5 font-display text-lg font-medium sm:text-xl">
+                  <span aria-hidden className="h-1.5 w-1.5 shrink-0 rotate-45 bg-paper" />
+                  {item.value}
+                </dt>
+                <dd className="mt-1.5 pl-4 text-sm leading-relaxed text-paper/60">{item.label}</dd>
+              </div>
+            ))}
+          </motion.dl>
+        </div>
+      </section>
+    </MotionConfig>
   );
 }

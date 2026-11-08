@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ScrollReveal } from "./ScrollReveal";
+import { primaryButton } from "./buttons";
 import { whatsappLink } from "@/lib/whatsapp";
 
 const PRODUCTS = [
@@ -25,31 +26,28 @@ export function Products() {
     <section id="produtos" className="scroll-mt-24 px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <ScrollReveal>
-          <span className="text-sm uppercase tracking-widest text-accent">
-            Produtos
-          </span>
-          <h2 className="mt-4 max-w-xl font-display text-4xl font-medium tracking-tight sm:text-5xl">
+          <h2 className="max-w-xl font-display text-4xl font-medium tracking-[-0.02em] sm:text-5xl">
             Ferramentas próprias para vender mais.
           </h2>
         </ScrollReveal>
 
-        <div className="mt-16 space-y-6">
+        <div className="mt-14 space-y-6">
           {PRODUCTS.map((product) => (
             <ScrollReveal key={product.name}>
-              <article className="grid items-center gap-10 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition-colors hover:border-accent/40 md:grid-cols-[1fr_1.15fr] md:p-10">
+              <article className="grid items-center gap-10 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8 md:grid-cols-[1fr_1.15fr] md:p-10">
                 <div>
                   <div className="flex items-center gap-3">
-                    <h3 className="font-display text-3xl">{product.name}</h3>
-                    <span className="rounded-full border border-white/15 px-3 py-1 text-xs uppercase tracking-widest text-paper/60">
+                    <h3 className="font-display text-3xl font-medium">{product.name}</h3>
+                    <span className="rounded-full border border-white/15 px-3 py-1 text-xs text-paper/60">
                       {product.tag}
                     </span>
                   </div>
                   <p className="mt-3 text-lg text-paper">{product.tagline}</p>
-                  <p className="mt-3 text-paper/65">{product.description}</p>
-                  <ul className="mt-6 space-y-2 border-t border-white/10 pt-6 text-sm text-paper/60">
+                  <p className="mt-3 leading-relaxed text-paper/65">{product.description}</p>
+                  <ul className="mt-6 space-y-2.5 border-t border-white/10 pt-6 text-sm text-paper/60">
                     {product.points.map((point) => (
-                      <li key={point} className="flex items-center gap-2">
-                        <span className="h-1 w-1 shrink-0 rotate-45 bg-accent" />
+                      <li key={point} className="flex items-start gap-2.5">
+                        <span aria-hidden className="mt-[0.45em] h-1 w-1 shrink-0 rotate-45 bg-paper/70" />
                         {point}
                       </li>
                     ))}
@@ -58,7 +56,7 @@ export function Products() {
                     href={whatsappLink(product.message)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-medium text-ink transition-transform hover:scale-105"
+                    className={`${primaryButton} mt-8 px-6 py-3`}
                   >
                     Quero uma demonstração
                   </a>
@@ -69,15 +67,15 @@ export function Products() {
                   width={1600}
                   height={1000}
                   sizes="(max-width: 768px) 100vw, 600px"
-                  className="w-full rounded-xl border border-white/10"
+                  className="w-full rounded-xl border border-white/10 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.7)]"
                 />
               </article>
             </ScrollReveal>
           ))}
 
           <ScrollReveal delay={0.1}>
-            <p className="flex items-center gap-2 text-sm text-paper/50">
-              <span className="h-1 w-1 rotate-45 bg-paper/50" />
+            <p className="flex items-center gap-2.5 text-sm text-paper/50">
+              <span aria-hidden className="h-1 w-1 rotate-45 bg-paper/50" />
               Novos produtos em breve.
             </p>
           </ScrollReveal>

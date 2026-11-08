@@ -10,6 +10,21 @@ import {
   toBrazilTimeMinutes,
 } from "@/lib/date";
 import { ANALYST_LABELS } from "@/lib/validation/meeting";
+import { buttonPrimary } from "@/components/admin/buttons";
+
+function Chevron({ dir }: { dir: "left" | "right" }) {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden className="h-3.5 w-3.5">
+      <path
+        d={dir === "left" ? "M10 4L6 8l4 4" : "M6 4l4 4-4 4"}
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 const WEEKDAY_LABELS = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
 const MONTH_LABELS = [
@@ -75,7 +90,7 @@ function AgendaHeader({ view }: { view: "month" | "week" }) {
         </Link>
         <Link
           href="/admin/agenda/new"
-          className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper"
+          className={`${buttonPrimary} px-4 py-2`}
         >
           Nova reunião
         </Link>
@@ -135,18 +150,20 @@ export default async function AgendaPage({
         <div className="mt-6 flex items-center justify-between">
           <Link
             href={`/admin/agenda?view=week&week=${prevWeek}`}
-            className="text-sm text-ink/60 hover:text-ink"
+            aria-label="Semana anterior"
+            className="inline-flex items-center gap-1.5 rounded-full px-2 py-1.5 text-sm text-ink/60 transition-colors hover:bg-ink/[0.04] hover:text-ink"
           >
-            ← <span className="hidden sm:inline">Semana anterior</span>
+            <Chevron dir="left" /> <span className="hidden sm:inline">Semana anterior</span>
           </Link>
           <p className="text-sm font-medium">
             {days[0]} – {days[6]}
           </p>
           <Link
             href={`/admin/agenda?view=week&week=${nextWeek}`}
-            className="text-sm text-ink/60 hover:text-ink"
+            aria-label="Próxima semana"
+            className="inline-flex items-center gap-1.5 rounded-full px-2 py-1.5 text-sm text-ink/60 transition-colors hover:bg-ink/[0.04] hover:text-ink"
           >
-            <span className="hidden sm:inline">Próxima semana</span> →
+            <span className="hidden sm:inline">Próxima semana</span> <Chevron dir="right" />
           </Link>
         </div>
 
@@ -304,18 +321,20 @@ export default async function AgendaPage({
       <div className="mt-6 flex items-center justify-between">
         <Link
           href={`/admin/agenda?month=${prevYear}-${String(prevMonthNum).padStart(2, "0")}`}
-          className="text-sm text-ink/60 hover:text-ink"
+          aria-label="Mês anterior"
+          className="inline-flex items-center gap-1.5 rounded-full px-2 py-1.5 text-sm text-ink/60 transition-colors hover:bg-ink/[0.04] hover:text-ink"
         >
-          ← Anterior
+          <Chevron dir="left" /> Anterior
         </Link>
         <p className="font-display text-lg font-medium">
           {MONTH_LABELS[monthNum - 1]} {year}
         </p>
         <Link
           href={`/admin/agenda?month=${nextYear}-${String(nextMonthNum).padStart(2, "0")}`}
-          className="text-sm text-ink/60 hover:text-ink"
+          aria-label="Próximo mês"
+          className="inline-flex items-center gap-1.5 rounded-full px-2 py-1.5 text-sm text-ink/60 transition-colors hover:bg-ink/[0.04] hover:text-ink"
         >
-          Próximo →
+          Próximo <Chevron dir="right" />
         </Link>
       </div>
 

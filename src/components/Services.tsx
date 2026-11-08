@@ -26,32 +26,34 @@ export function Services() {
     <section id="servicos" className="scroll-mt-24 px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <ScrollReveal>
-          <span className="text-sm uppercase tracking-widest text-accent">
-            O que fazemos
-          </span>
-          <h2 className="mt-4 max-w-xl font-display text-4xl font-medium tracking-tight sm:text-5xl">
+          <h2 className="max-w-xl font-display text-4xl font-medium tracking-[-0.02em] sm:text-5xl">
             Do site à campanha que traz o cliente.
           </h2>
         </ScrollReveal>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
+        <ol className="mt-14 border-t border-white/10">
           {SERVICES.map((service, i) => (
-            <ScrollReveal key={service.title} delay={i * 0.1}>
-              <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition-colors hover:border-accent/40">
-                <h3 className="font-display text-2xl">{service.title}</h3>
-                <p className="mt-3 text-paper/65">{service.description}</p>
-                <ul className="mt-6 space-y-2 border-t border-white/10 pt-6 text-sm text-paper/60">
-                  {service.points.map((point) => (
-                    <li key={point} className="flex items-center gap-2">
-                      <span className="h-1 w-1 rotate-45 bg-accent" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </ScrollReveal>
+            <li key={service.title} className="border-b border-white/10">
+              <ScrollReveal
+                delay={i * 0.06}
+                className="grid gap-4 py-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-12"
+              >
+                <h3 className="font-display text-2xl font-medium sm:text-3xl">{service.title}</h3>
+                <div>
+                  <p className="max-w-[60ch] leading-relaxed text-paper/70">{service.description}</p>
+                  <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-paper/55">
+                    {service.points.map((point) => (
+                      <li key={point} className="flex items-center gap-2">
+                        <span aria-hidden className="h-1 w-1 shrink-0 rotate-45 bg-paper/70" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ScrollReveal>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

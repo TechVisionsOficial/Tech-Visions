@@ -7,6 +7,7 @@ import {
   ANALYST_LABELS,
   type MeetingFormState,
 } from "@/lib/validation/meeting";
+import { buttonPrimary } from "@/components/admin/buttons";
 
 // datetime-local inputs work in the browser's own local timezone — correct
 // by construction for this team, since the browser they use is set to
@@ -143,7 +144,7 @@ export function MeetingForm({
       <button
         type="submit"
         disabled={pending}
-        className="w-fit rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-opacity disabled:opacity-50"
+        className={`${buttonPrimary} w-fit px-5 py-2.5`}
       >
         {pending ? "Salvando…" : "Salvar"}
       </button>

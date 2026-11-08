@@ -5,6 +5,7 @@ import { getBrazilTodayISO } from "@/lib/date";
 import { formatBRL } from "@/lib/formatCurrency";
 import { DataTable, Th, Td, EmptyRow } from "@/components/admin/DataTable";
 import { StatusBadge } from "@/components/admin/StatusBadge";
+import { buttonPrimary } from "@/components/admin/buttons";
 
 export default async function ContratosPage() {
   await getUser();
@@ -22,7 +23,7 @@ export default async function ContratosPage() {
         <h1 className="font-display text-2xl font-medium">Contratos</h1>
         <Link
           href="/admin/contratos/new"
-          className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper"
+          className={`${buttonPrimary} px-4 py-2`}
         >
           Novo contrato
         </Link>

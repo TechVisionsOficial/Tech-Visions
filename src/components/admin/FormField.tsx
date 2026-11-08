@@ -28,4 +28,4 @@ export function FormField({
 
 // text-base below sm: iOS Safari zooms the page on focus for inputs under 16px.
 export const inputClass =
-  "rounded-lg border border-ink/15 bg-white px-3.5 py-2.5 text-base text-ink outline-none transition-colors focus:border-ink/40 sm:text-sm";
+  "rounded-lg border border-ink/15 bg-white px-3.5 py-2.5 text-base text-ink outline-none transition-[border-color,box-shadow] duration-150 placeholder:text-ink/35 hover:border-ink/25 focus:border-ink/50 focus:shadow-[0_0_0_4px_rgb(26_26_26/0.06)] focus-visible:outline-none sm:text-sm";
