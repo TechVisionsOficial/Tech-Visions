@@ -60,7 +60,7 @@ export function KanbanBoard({ leads }: { leads: Lead[] }) {
             onDrop={() => handleDrop(column.value)}
             className="flex min-w-0 flex-col gap-3 rounded-[3px] bg-ink/5 p-3"
           >
-            <p className="px-1 text-xs font-medium uppercase tracking-wide text-ink/50">
+            <p className="px-1 font-display text-sm font-bold uppercase tracking-[0.08em] text-ink/60">
               {column.label} · {columnLeads.length}
             </p>
 

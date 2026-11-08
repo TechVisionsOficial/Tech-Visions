@@ -150,12 +150,12 @@ export function Letreiro({ formInputId }: { formInputId: string }) {
   return (
     <MotionConfig reducedMotion="user">
       <header id="letreiro" className="relative z-20 bg-paper text-ink">
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-5 py-4 md:px-[4.5vw] md:py-6">
+        <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-5 py-3.5 md:px-[4.5vw] md:py-[clamp(1rem,2.2svh,1.75rem)]">
           <a href="#top" aria-label="Tech Visions, início" className="rounded-[3px]">
-            <Wordmark className="h-9 w-auto sm:h-11 md:h-[clamp(2.75rem,4.2vw,4.25rem)]" />
+            <Wordmark className="h-12 w-auto md:h-[clamp(4rem,min(6.5vw,10.5svh),6.5rem)]" />
           </a>
           <div className="flex items-center gap-4">
-            <NavLinks className="rounded-[3px] px-3 py-2 font-display text-xl font-bold uppercase tracking-[0.05em] text-ink/75 transition-colors duration-150 hover:bg-ink/[0.06] hover:text-ink" />
+            <NavLinks className="rounded-[3px] px-3 py-2 font-display font-bold uppercase tracking-[0.05em] text-ink/75 md:text-lg lg:text-2xl transition-colors duration-150 hover:bg-ink/[0.06] hover:text-ink" />
             <button
               type="button"
               onClick={() => document.getElementById(formInputId)?.focus()}
@@ -166,8 +166,11 @@ export function Letreiro({ formInputId }: { formInputId: string }) {
             <MenuButton open={open} onClick={() => setOpen(true)} controls="menu-fachada" />
           </div>
         </div>
-        {/* Housing for the rolled-up door. */}
-        <div aria-hidden className="h-3.5 border-t-2 border-steel-edge bg-steel-deep" />
+        {/* The drum the door rolls into: coiled slats behind a steel lip. */}
+        <div
+          aria-hidden
+          className="h-7 border-t-[3px] border-steel-edge bg-[repeating-linear-gradient(0deg,var(--steel-deep)_0_5px,var(--steel-dark)_5px_7px)]"
+        />
       </header>
       <MenuSheet id="menu-fachada" open={open} onClose={() => setOpen(false)} />
     </MotionConfig>

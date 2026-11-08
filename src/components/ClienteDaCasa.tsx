@@ -24,22 +24,23 @@ export function ClienteDaCasa() {
               necessidades e entregar um resultado que superou nossas
               expectativas.&rdquo;
             </blockquote>
-            <figcaption className="mt-10 flex items-center gap-4 border-t-2 border-ink pt-6">
+            <figcaption className="mt-10 flex items-end gap-5 border-t-2 border-ink pt-6">
               <Image
                 src="/cases/afcarros-alexandro.jpeg"
                 alt="Alexandro Ferreira"
-                width={64}
-                height={64}
-                className="h-16 w-16 rounded-[3px] object-cover"
+                width={400}
+                height={400}
+                sizes="(max-width: 768px) 128px, 176px"
+                className="h-32 w-32 rounded-[3px] object-cover md:h-44 md:w-44"
               />
-              <div>
-                <p className="letreiro text-2xl">Alexandro Ferreira</p>
-                <p className="mt-1 text-sm text-ink/60">Fundador da AFCARROS</p>
+              <div className="pb-1">
+                <p className="letreiro text-3xl md:text-4xl">Alexandro Ferreira</p>
+                <p className="mt-2 text-sm text-ink/60">Fundador da AFCARROS</p>
               </div>
             </figcaption>
           </figure>
 
-          <article className="relative rounded-[3px] bg-ink p-6 text-paper md:p-8">
+          <article className="relative self-start rounded-[3px] bg-ink p-6 text-paper md:p-8">
             <span aria-hidden className="absolute left-3 top-3 h-1.5 w-1.5 rounded-full bg-paper/35" />
             <span aria-hidden className="absolute right-3 top-3 h-1.5 w-1.5 rounded-full bg-paper/35" />
             <div className="flex items-baseline justify-between gap-4">

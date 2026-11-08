@@ -99,7 +99,7 @@ export default async function DashboardsPage() {
     <div>
       <h1 className="font-display text-2xl font-medium">Dashboards</h1>
 
-      <h2 className="mt-8 text-sm font-medium uppercase tracking-wide text-ink/50">
+      <h2 className="mt-8 border-b-2 border-ink pb-2 font-display text-lg font-bold uppercase tracking-[0.06em]">
         Financeiro
       </h2>
       <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -115,7 +115,7 @@ export default async function DashboardsPage() {
         ))}
       </div>
 
-      <h2 className="mt-10 text-sm font-medium uppercase tracking-wide text-ink/50">
+      <h2 className="mt-10 border-b-2 border-ink pb-2 font-display text-lg font-bold uppercase tracking-[0.06em]">
         Operação
       </h2>
       <div className="mt-3 grid grid-cols-2 gap-4 sm:grid-cols-4">

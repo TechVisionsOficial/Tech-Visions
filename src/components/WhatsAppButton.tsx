@@ -28,7 +28,7 @@ export function WhatsAppButton() {
       aria-label="Falar no WhatsApp"
       tabIndex={visible ? undefined : -1}
       aria-hidden={visible ? undefined : true}
-      className={`${visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"} fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full border-2 border-ink bg-paper text-ink shadow-[0_10px_28px_-8px_rgba(0,0,0,0.55)] transition-[transform,background-color,opacity] duration-300 ease-out-expo hover:bg-white active:scale-[0.94]`}
+      className={`${visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"} fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-5 z-40 flex h-14 w-14 items-center justify-center rounded-[3px] border-2 border-ink bg-paper text-ink shadow-[0_10px_28px_-8px_rgba(0,0,0,0.55)] transition-[transform,background-color,opacity] duration-300 ease-out-expo hover:bg-white active:scale-[0.94]`}
     >
       <svg
         viewBox="0 0 24 24"

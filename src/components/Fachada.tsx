@@ -24,7 +24,7 @@ function Porta({ y, emFluxo }: { y?: MotionValue<string>; emFluxo?: boolean }) {
       }`}
     >
       <div className="px-5 pb-8 pt-7 md:px-[3.5vw] md:pt-[clamp(2rem,5svh,4rem)]">
-        <h1 className="estencil max-w-[14ch] text-[clamp(2.75rem,min(8.5vw,11svh),8.5rem)] text-paper">
+        <h1 className="estencil max-w-[14ch] text-[clamp(2.75rem,min(8vw,10svh),8rem)] text-paper">
           Abra as portas do seu negócio na internet.
         </h1>
         <p className="estencil mt-4 text-[clamp(1.25rem,min(2.2vw,3.2svh),2.25rem)] text-paper/75 md:mt-6">
@@ -43,18 +43,28 @@ function Porta({ y, emFluxo }: { y?: MotionValue<string>; emFluxo?: boolean }) {
 
 function Placas() {
   return (
-    <ul className="grid grid-cols-2 gap-2 sm:gap-3 xl:grid-cols-4 xl:gap-5">
-      {PLACAS.map((placa) => (
-        <li key={placa.title} className="@container relative rounded-[3px] bg-ink px-3 pb-4 pt-6 text-paper sm:px-4 md:px-6 md:pb-6 md:pt-8">
-          {/* Two screws hold each plate to the wall. */}
-          <span aria-hidden className="absolute left-2.5 top-2.5 h-1.5 w-1.5 rounded-full bg-paper/35" />
-          <span aria-hidden className="absolute right-2.5 top-2.5 h-1.5 w-1.5 rounded-full bg-paper/35" />
-          {/* Sized from the plate's own width so the longest word always fits. */}
-          <p className="letreiro text-[clamp(1rem,12.5cqi,2.25rem)]">{placa.title}</p>
-          <p className="mt-3 hidden text-sm leading-relaxed text-paper/70 sm:block">{placa.text}</p>
-        </li>
-      ))}
-    </ul>
+    <div className="flex min-h-0 flex-1 flex-col">
+      {/* The rail on the back wall the plates hang from. */}
+      <div aria-hidden className="h-3 shrink-0 rounded-[2px] border-y-2 border-steel-edge bg-steel-light" />
+      <ul className="mt-2 grid min-h-0 flex-1 grid-cols-2 grid-rows-2 gap-2 sm:mt-3 sm:gap-3 md:gap-5">
+        {PLACAS.map((placa) => (
+          <li
+            key={placa.title}
+            className="@container relative flex flex-col rounded-[3px] bg-ink px-3 pb-3 pt-6 text-paper sm:px-4 sm:pb-4 md:px-7 md:pb-6 md:pt-9"
+          >
+            {/* Two screws hold each plate to the wall. */}
+            <span aria-hidden className="absolute left-2.5 top-2.5 h-1.5 w-1.5 rounded-full bg-paper/35" />
+            <span aria-hidden className="absolute right-2.5 top-2.5 h-1.5 w-1.5 rounded-full bg-paper/35" />
+            {/* Sized from the plate's own width so the longest word always fits;
+                a fixed two-line block keeps every plate's text on one baseline. */}
+            <p className="letreiro min-h-[1.84em] text-[clamp(1rem,9cqi,4rem)]">{placa.title}</p>
+            <p className="mt-2 text-[0.8125rem] leading-snug text-paper/70 sm:text-sm md:mt-4 md:text-lg md:leading-relaxed">
+              {placa.text}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -70,14 +80,14 @@ export function Fachada() {
   const animated = !reduceMotion;
 
   const { scrollYProgress } = useScroll({ target: sceneRef, offset: ["start start", "end end"] });
-  const y = useTransform(scrollYProgress, [0, 0.65], ["0%", "-100%"]);
+  const y = useTransform(scrollYProgress, [0, 0.85], ["0%", "-100%"]);
 
   return (
     <section
       id="top"
       ref={sceneRef}
       aria-label="Tech Visions"
-      className={animated ? "relative h-[175svh]" : "relative"}
+      className={animated ? "relative h-[165svh]" : "relative"}
     >
       <div className={animated ? "sticky top-0 flex h-svh flex-col" : "flex min-h-svh flex-col"}>
         <Letreiro formInputId={FORM_INPUT_ID} />
@@ -87,7 +97,7 @@ export function Fachada() {
           <div className="flex min-h-0 flex-1 flex-col overflow-hidden bg-paper text-ink">
             {!animated && <Porta emFluxo />}
 
-            <div className="relative flex min-h-0 flex-1 flex-col justify-center p-4 md:p-[clamp(1.5rem,3vw,3rem)]">
+            <div className="relative flex min-h-0 flex-1 flex-col p-3 sm:p-4 md:p-[clamp(1.25rem,2.5vw,2.5rem)]">
               <Placas />
               {animated && <Porta y={y} />}
             </div>

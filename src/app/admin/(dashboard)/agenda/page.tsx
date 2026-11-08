@@ -180,7 +180,7 @@ export default async function AgendaPage({
                     isToday ? "bg-ink/[0.03]" : ""
                   }`}
                 >
-                  <p className="text-xs font-medium uppercase tracking-wide text-ink/40">
+                  <p className="font-display text-sm font-bold uppercase tracking-[0.08em] text-ink/55">
                     {WEEKDAY_LABELS[i]}
                   </p>
                   <p
@@ -346,7 +346,7 @@ export default async function AgendaPage({
           {WEEKDAY_LABELS.map((w, i) => (
             <div
               key={w}
-              className="py-2 text-center text-xs font-medium uppercase tracking-wide text-ink/40"
+              className="py-2 text-center font-display text-sm font-bold uppercase tracking-[0.08em] text-ink/55"
               style={{ borderLeft: i === 0 ? "none" : "1px solid rgba(26,26,26,0.1)" }}
             >
               {w}
