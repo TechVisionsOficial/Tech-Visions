@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 export function DataTable({ children }: { children: ReactNode }) {
   return (
     <div className="overflow-x-auto rounded-xl border border-ink/10 bg-white">
-      <table className="w-full text-left text-sm">{children}</table>
+      <table className="w-full text-left text-sm [&_tbody_tr]:transition-colors [&_tbody_tr:hover]:bg-ink/[0.02]">{children}</table>
     </div>
   );
 }

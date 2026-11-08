@@ -5,6 +5,8 @@
   --paper: #f7f6f4;
   --accent: #f7f6f4;
   --muted: #8a8a86;
+  /* Exponential ease-out: fast response, soft landing. Used by every transition. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
@@ -14,12 +16,58 @@
   --color-muted: var(--muted);
   --font-sans: var(--font-inter);
   --font-display: var(--font-space-grotesk);
+  --ease-out-expo: var(--ease-out);
 }
 
 body {
   background: var(--ink);
   color: var(--paper);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Browser surfaces carry the palette too: selection, caret, focus, scrollbars. */
+::selection {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+html {
+  scrollbar-color: rgb(247 246 244 / 0.25) var(--ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+textarea {
+  caret-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Painel admin: fundo claro, então seleção e rolagem invertem. */
+.admin-shell ::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.admin-shell {
+  scrollbar-color: rgb(26 26 26 / 0.25) transparent;
+}
+
+.admin-shell table {
+  font-variant-numeric: tabular-nums;
 }
 
 /* Páginas legais (privacidade, termos) */

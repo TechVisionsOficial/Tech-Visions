@@ -13,13 +13,13 @@ export function Footer() {
           draggable={false}
           className="h-[30px] w-auto select-none opacity-70"
         />
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
           <Link
             href="https://www.instagram.com/techvisionsoficial/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram da Tech Visions"
-            className="text-paper/50 transition-colors hover:text-paper"
+            className="rounded text-paper/50 transition-colors hover:text-paper"
           >
             <svg
               viewBox="0 0 24 24"
@@ -34,10 +34,10 @@ export function Footer() {
               <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
             </svg>
           </Link>
-          <Link href="/privacidade" className="text-sm text-paper/50 transition-colors hover:text-paper">
+          <Link href="/privacidade" className="rounded text-sm text-paper/50 transition-colors hover:text-paper">
             Privacidade
           </Link>
-          <Link href="/termos" className="text-sm text-paper/50 transition-colors hover:text-paper">
+          <Link href="/termos" className="rounded text-sm text-paper/50 transition-colors hover:text-paper">
             Termos
           </Link>
           <p className="text-sm text-paper/40">

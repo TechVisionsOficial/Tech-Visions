@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { formatBRL } from "@/lib/formatCurrency";
 import { DataTable, Th, Td, EmptyRow } from "@/components/admin/DataTable";
 import { StatusBadge } from "@/components/admin/StatusBadge";
+import { buttonPrimary } from "@/components/admin/buttons";
 
 export default async function OrcamentosPage() {
   await getUser();
@@ -19,7 +20,7 @@ export default async function OrcamentosPage() {
         <h1 className="font-display text-2xl font-medium">Orçamentos</h1>
         <Link
           href="/admin/orcamentos/new"
-          className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper"
+          className={`${buttonPrimary} px-4 py-2`}
         >
           Novo orçamento
         </Link>

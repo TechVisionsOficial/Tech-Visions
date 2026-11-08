@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { FormField, inputClass } from "@/components/admin/FormField";
 import type { ProjectFormState } from "@/lib/validation/project";
+import { buttonPrimary } from "@/components/admin/buttons";
 
 type ProjectDefaults = {
   client_id?: string | null;
@@ -101,7 +102,7 @@ export function ProjectForm({
       <button
         type="submit"
         disabled={pending}
-        className="w-fit rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-opacity disabled:opacity-50"
+        className={`${buttonPrimary} w-fit px-5 py-2.5`}
       >
         {pending ? "Salvando…" : "Salvar"}
       </button>
