@@ -43,13 +43,14 @@ function Porta({ y, emFluxo }: { y?: MotionValue<string>; emFluxo?: boolean }) {
 
 function Placas() {
   return (
-    <ul className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
+    <ul className="grid grid-cols-2 gap-2 sm:gap-3 xl:grid-cols-4 xl:gap-5">
       {PLACAS.map((placa) => (
-        <li key={placa.title} className="relative rounded-[3px] bg-ink px-4 pb-4 pt-6 text-paper md:px-6 md:pb-6 md:pt-8">
+        <li key={placa.title} className="@container relative rounded-[3px] bg-ink px-3 pb-4 pt-6 text-paper sm:px-4 md:px-6 md:pb-6 md:pt-8">
           {/* Two screws hold each plate to the wall. */}
           <span aria-hidden className="absolute left-2.5 top-2.5 h-1.5 w-1.5 rounded-full bg-paper/35" />
           <span aria-hidden className="absolute right-2.5 top-2.5 h-1.5 w-1.5 rounded-full bg-paper/35" />
-          <p lang="pt-BR" className="letreiro hyphens-auto text-[clamp(1.15rem,5.2vw,1.5rem)] md:text-[clamp(1.5rem,2.2vw,2.1rem)]">{placa.title}</p>
+          {/* Sized from the plate's own width so the longest word always fits. */}
+          <p className="letreiro text-[clamp(1rem,12.5cqi,2.25rem)]">{placa.title}</p>
           <p className="mt-3 hidden text-sm leading-relaxed text-paper/70 sm:block">{placa.text}</p>
         </li>
       ))}
