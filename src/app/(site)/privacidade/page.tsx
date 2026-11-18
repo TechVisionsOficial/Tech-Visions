@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LegalPage } from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidade — Tech Visions",
+  title: "Política de Privacidade",
   description: "Como a Tech Visions trata dados pessoais no site e no Órbita, de acordo com a LGPD.",
   alternates: { canonical: "/privacidade" },
 };

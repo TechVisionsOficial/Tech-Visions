@@ -20,9 +20,8 @@ const DESCRIPTION =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: TITLE,
+  title: { default: TITLE, template: "%s · Tech Visions" },
   description: DESCRIPTION,
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "pt_BR",

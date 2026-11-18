@@ -3,7 +3,7 @@ import Link from "next/link";
 import { LegalPage } from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Termos de Uso — Órbita | Tech Visions",
+  title: "Termos de Uso do Órbita",
   description: "Regras de uso do Órbita, o programa de prospecção da Tech Visions.",
   alternates: { canonical: "/termos" },
 };
