@@ -6,7 +6,6 @@ import { Arrow } from "@/components/site/Arrow";
 import { ClientLogos } from "@/components/site/ClientLogos";
 import { CTASection } from "@/components/site/CTASection";
 import { FadeIn } from "@/components/site/FadeIn";
-import { HeroAvatar } from "@/components/site/HeroAvatar";
 import { ProductCard } from "@/components/site/ProductCard";
 import { ServiceStrip } from "@/components/site/ServiceStrip";
 import { ServicesShowcase } from "@/components/site/ServicesShowcase";
@@ -51,37 +50,30 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
 
-      {/* Hero: the promise on the left, the avatar on the right. */}
-      <section className="overflow-hidden px-6 pb-20 pt-10 sm:pt-16">
+      {/* Hero */}
+      <section className="px-6 pb-20 pt-16 sm:pt-24">
         <div className="mx-auto max-w-6xl">
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-6">
-            <div>
-              <SplitHeading
-                text="Tecnologia que converte visitas em clientes."
-                className="font-display text-5xl font-medium leading-[1.03] tracking-[-0.035em] sm:text-7xl"
-              />
-              <FadeIn delay={0.45}>
-                <p className="mt-8 max-w-xl text-lg leading-relaxed text-paper/70">
-                  A Tech Visions une tecnologia com IA e marketing: cria sites, sistemas e automações e
-                  cuida do tráfego pago que traz o cliente, com ferramentas próprias para o seu negócio
-                  vender mais.
-                </p>
-              </FadeIn>
-              <FadeIn delay={0.55} className="mt-10 flex flex-wrap gap-3">
-                <Link href="/contato" className={`${buttonPrimary} px-7 py-3.5`}>
-                  Pedir orçamento <Arrow />
-                </Link>
-                <Link href="/servicos" className={`${buttonSecondary} px-7 py-3.5`}>
-                  Ver serviços
-                </Link>
-              </FadeIn>
-            </div>
-            <FadeIn delay={0.2} className="-mx-6 sm:mx-0">
-              <HeroAvatar />
-            </FadeIn>
-          </div>
+          <SplitHeading
+            text="Tecnologia que converte visitas em clientes."
+            className="max-w-4xl font-display text-5xl font-medium leading-[1.03] tracking-[-0.035em] sm:text-7xl md:text-8xl"
+          />
+          <FadeIn delay={0.45}>
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-paper/70">
+              A Tech Visions une tecnologia com IA e marketing: cria sites, sistemas e automações e
+              cuida do tráfego pago que traz o cliente, com ferramentas próprias para o seu negócio
+              vender mais.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.55} className="mt-10 flex flex-wrap gap-3">
+            <Link href="/contato" className={`${buttonPrimary} px-7 py-3.5`}>
+              Pedir orçamento <Arrow />
+            </Link>
+            <Link href="/servicos" className={`${buttonSecondary} px-7 py-3.5`}>
+              Ver serviços
+            </Link>
+          </FadeIn>
           <FadeIn delay={0.7}>
-            <dl className="mt-12 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-white/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+            <dl className="mt-20 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-white/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
               {DIFERENCIAIS.map((item) => (
                 <div key={item.title}>
                   <dt className="flex items-center gap-2.5 font-display text-lg font-medium">
