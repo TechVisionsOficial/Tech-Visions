@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Arrow } from "@/components/site/Arrow";
+import { ClientLogos } from "@/components/site/ClientLogos";
 import { CTASection } from "@/components/site/CTASection";
 import { FadeIn } from "@/components/site/FadeIn";
 import { Marquee } from "@/components/site/Marquee";
@@ -86,6 +87,8 @@ export default function Home() {
       </section>
 
       <Marquee />
+
+      <ClientLogos />
 
       {/* Serviços */}
       <section className="px-6 py-28">

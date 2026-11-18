@@ -48,9 +48,10 @@ Confirmado pelo dono como diferenciais que um concorrente não pode afirmar com 
 ## Evidence on Hand
 
 - **Case real AFCARROS** (loja de automóveis): depoimento de Alexandro Ferreira, fundador, com foto (`public/cases/afcarros-alexandro.jpeg`), lista antes/depois e link para afcarros.com.br.
+- **Clientes autorizados no site** (2026-11-18): **C2R4 Global** (holding de estratégia e gestão; a Tech Visions fez o site c2r4.com) e **Take Time** (importação, logística e tecnologia, loja taketime.store; o que foi entregue para ela ainda não foi informado). Logos em `public/clientes/`.
 - **Print do Órbita** em modo demonstração, com empresas fictícias (`public/produtos/orbita-lista.png`).
 - Marca em vetor e raster em `public/brand/`.
-- **Ausências que não podem ser inventadas:** métricas, números de resultado, outros depoimentos, logos de clientes, preços. Outros projetos em andamento não estão autorizados como case público.
+- **Ausências que não podem ser inventadas:** métricas, números de resultado, outros depoimentos, logos de clientes, preços. Outros projetos além dos clientes listados acima não estão autorizados como case público.
 
 ## Product Principles
 

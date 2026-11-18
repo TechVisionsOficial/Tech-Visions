@@ -4,6 +4,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { Arrow } from "@/components/site/Arrow";
 import { CTASection } from "@/components/site/CTASection";
 import { PageHero } from "@/components/site/PageHero";
+import { CLIENTES } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Cases",
@@ -17,7 +18,7 @@ const DEPOIS = ["Site profissional", "Google Ads", "Meta Ads", "Mais credibilida
 export default function CasesPage() {
   return (
     <>
-      <PageHero title="Resultado é o que a gente entrega." lead="Clientes reais, com o que mudou no negócio deles." />
+      <PageHero title="Resultado é o que a gente entrega." lead="Clientes reais da Tech Visions e o que mudou no negócio deles." />
 
       <section className="px-6 pb-12">
         <ScrollReveal className="mx-auto max-w-6xl">
@@ -83,6 +84,46 @@ export default function CasesPage() {
             </div>
           </article>
         </ScrollReveal>
+      </section>
+
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-6xl">
+          <ScrollReveal>
+            <h2 className="font-display text-3xl font-medium tracking-[-0.01em] sm:text-4xl">Outros clientes</h2>
+          </ScrollReveal>
+          <ul className="mt-10 grid gap-6 md:grid-cols-2">
+            {CLIENTES.filter((c) => c.name !== "AFCARROS").map((cliente, i) => (
+              <li key={cliente.name}>
+                <ScrollReveal delay={i * 0.08} className="h-full">
+                  <a
+                    href={cliente.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/[0.05] sm:p-8"
+                  >
+                    <Image
+                      src={cliente.logo.src}
+                      alt={cliente.name}
+                      width={cliente.logo.width}
+                      height={cliente.logo.height}
+                      className="h-9 w-auto self-start"
+                    />
+                    <h3 className="sr-only">{cliente.name}</h3>
+                    <p className="mt-6 max-w-[48ch] leading-relaxed text-paper/70">{cliente.segment}</p>
+                    {cliente.work && (
+                      <p className="mt-4 text-sm text-paper/50">
+                        O que fizemos: <span className="text-paper/80">{cliente.work}</span>
+                      </p>
+                    )}
+                    <span className="mt-auto inline-flex items-center gap-2 pt-8 text-sm text-paper/70 transition-colors group-hover:text-paper">
+                      Visitar {cliente.url.replace(/^https:\/\/(www\.)?/, "")} <Arrow />
+                    </span>
+                  </a>
+                </ScrollReveal>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <CTASection title="Seu negócio pode ser o próximo case." />

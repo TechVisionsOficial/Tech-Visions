@@ -41,3 +41,34 @@ export const SERVICOS = [
     points: ["Rede de Pesquisa e Display", "Remarketing estratégico", "Relatórios claros de ROI"],
   },
 ];
+
+// Clients the owner authorised to appear on the site. `work` is only filled
+// where what we delivered is confirmed; leave it out otherwise.
+export const CLIENTES: {
+  name: string;
+  segment: string;
+  url: string;
+  logo: { src: string; width: number; height: number; invert?: boolean };
+  work?: string;
+}[] = [
+  {
+    name: "AFCARROS",
+    segment: "Loja de automóveis.",
+    url: "https://afcarros.com.br",
+    logo: { src: "/clientes/afcarros.png", width: 732, height: 119, invert: true },
+    work: "Site profissional, Google Ads e Meta Ads",
+  },
+  {
+    name: "C2R4 Global",
+    segment: "Holding de estratégia, gestão e desenvolvimento de negócios.",
+    url: "https://c2r4.com",
+    logo: { src: "/clientes/c2r4-global.svg", width: 200, height: 50 },
+    work: "Site institucional",
+  },
+  {
+    name: "Take Time",
+    segment: "Importação, logística e tecnologia, com loja própria no varejo e no atacado.",
+    url: "https://www.taketime.store",
+    logo: { src: "/clientes/take-time.svg", width: 570, height: 100 },
+  },
+];
