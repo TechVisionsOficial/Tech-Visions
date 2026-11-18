@@ -9,7 +9,7 @@ export const NAV = [
 ] as const;
 
 export const DIFERENCIAIS = [
-  { title: "Tudo num lugar só", text: "Site, Meta Ads e Google Ads com o mesmo parceiro." },
+  { title: "Tudo num lugar só", text: "Tecnologia, IA e marketing com o mesmo parceiro." },
   { title: "Direto com quem faz", text: "Você fala com quem desenvolve e gerencia, sem intermediário." },
   { title: "Ferramentas próprias", text: "Produtos como o Órbita, feitos aqui dentro." },
   { title: "Acompanhamento contínuo", text: "Suporte e otimização depois da entrega." },
@@ -17,30 +17,22 @@ export const DIFERENCIAIS = [
 
 export const SERVICOS = [
   {
-    slug: "sites",
-    title: "Desenvolvimento de sites",
-    short: "Sites e landing pages rápidos, feitos para converter.",
+    slug: "tecnologia",
+    title: "Tecnologia e IA",
+    short: "Sites, sistemas e automações, com inteligência artificial trabalhando junto.",
     description:
-      "Sites institucionais e landing pages rápidos, responsivos e otimizados para converter — construídos com tecnologia moderna.",
-    points: ["Performance e SEO técnico", "Design responsivo", "Integração com formulários e analytics"],
+      "Desenvolvemos sites, landing pages e sistemas sob medida, e colocamos inteligência artificial e automação para trabalhar no seu atendimento e nos seus processos.",
+    points: ["Sites e landing pages", "Sistemas e painéis sob medida", "Automações do dia a dia", "IA aplicada ao atendimento"],
   },
   {
-    slug: "meta-ads",
-    title: "Meta Ads",
-    short: "Instagram e Facebook gerando demanda e leads.",
+    slug: "marketing",
+    title: "Marketing e tráfego pago",
+    short: "Campanhas que trazem cliente, não só clique.",
     description:
-      "Campanhas no Instagram e Facebook desenhadas para gerar demanda, leads qualificados e vendas com o menor custo por resultado.",
-    points: ["Segmentação e criativos testados", "Pixel e eventos configurados", "Otimização contínua de verba"],
+      "Planejamos e gerenciamos campanhas de tráfego pago para gerar demanda e leads qualificados, com rastreamento configurado e otimização contínua da verba.",
+    points: ["Meta Ads (Instagram e Facebook)", "Google Ads (Pesquisa e Display)", "Pixel, eventos e analytics", "Otimização contínua e relatórios claros"],
   },
-  {
-    slug: "google-ads",
-    title: "Google Ads",
-    short: "Sua empresa na frente de quem já está procurando.",
-    description:
-      "Capturamos a intenção de compra na busca e no display, colocando sua empresa na frente de quem já está procurando.",
-    points: ["Rede de Pesquisa e Display", "Remarketing estratégico", "Relatórios claros de ROI"],
-  },
-];
+] as const;
 
 // Clients the owner authorised to appear on the site. `work` is only filled
 // where what we delivered is confirmed; leave it out otherwise.

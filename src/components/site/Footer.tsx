@@ -20,7 +20,7 @@ export function Footer() {
             className="h-[30px] w-auto select-none opacity-80"
           />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/55">
-            Sites, Meta Ads, Google Ads e ferramentas próprias. São Paulo, atendendo todo o Brasil.
+            Tecnologia com IA, marketing e ferramentas próprias. São Paulo, atendendo todo o Brasil.
           </p>
         </div>
         <nav aria-label="Site" className="flex flex-col gap-3">

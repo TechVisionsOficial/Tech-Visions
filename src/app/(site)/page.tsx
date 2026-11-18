@@ -8,10 +8,11 @@ import { CTASection } from "@/components/site/CTASection";
 import { FadeIn } from "@/components/site/FadeIn";
 import { Marquee } from "@/components/site/Marquee";
 import { ProductCard } from "@/components/site/ProductCard";
+import { ServicesShowcase } from "@/components/site/ServicesShowcase";
 import { SplitHeading } from "@/components/site/SplitHeading";
 import { buttonPrimary, buttonSecondary } from "@/components/site/buttons";
 import { HELPDESK, ORBITA } from "@/lib/produtos";
-import { DIFERENCIAIS, SERVICOS } from "@/lib/site";
+import { DIFERENCIAIS } from "@/lib/site";
 
 const SITE_URL = "https://www.techvisions.com.br";
 
@@ -24,7 +25,7 @@ const jsonLd = {
   "@type": "ProfessionalService",
   name: "Tech Visions",
   description:
-    "Desenvolvimento de sites e gestão de tráfego pago (Meta Ads e Google Ads) para negócios que querem crescer.",
+    "Soluções de tecnologia com IA (sites, sistemas e automações) e marketing com tráfego pago para negócios que querem crescer.",
   url: SITE_URL,
   logo: `${SITE_URL}/icon.png`,
   image: `${SITE_URL}/opengraph-image.png`,
@@ -58,8 +59,9 @@ export default function Home() {
           />
           <FadeIn delay={0.45}>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-paper/70">
-              A Tech Visions constrói sites de alta performance, gerencia campanhas de Meta e Google
-              Ads e cria ferramentas próprias para o seu negócio vender mais.
+              A Tech Visions une tecnologia com IA e marketing: cria sites, sistemas e automações e
+              cuida do tráfego pago que traz o cliente, com ferramentas próprias para o seu negócio
+              vender mais.
             </p>
           </FadeIn>
           <FadeIn delay={0.55} className="mt-10 flex flex-wrap gap-3">
@@ -94,31 +96,16 @@ export default function Home() {
       <section className="px-6 py-28">
         <div className="mx-auto max-w-6xl">
           <ScrollReveal className="flex flex-wrap items-end justify-between gap-6">
-            <h2 className="max-w-xl font-display text-4xl font-medium tracking-[-0.02em] sm:text-5xl">
-              Do site à campanha que traz o cliente.
+            <h2 className="max-w-2xl font-display text-4xl font-medium tracking-[-0.02em] sm:text-5xl">
+              Tecnologia e marketing no mesmo parceiro.
             </h2>
             <Link href="/servicos" className="group inline-flex items-center gap-2 text-sm text-paper/70 transition-colors hover:text-paper">
               Todos os serviços <Arrow />
             </Link>
           </ScrollReveal>
-          <ul className="mt-12 border-t border-white/10">
-            {SERVICOS.map((servico, i) => (
-              <li key={servico.slug} className="border-b border-white/10">
-                <ScrollReveal delay={i * 0.06}>
-                  <Link
-                    href={`/servicos#${servico.slug}`}
-                    className="group grid items-center gap-2 py-8 transition-[padding] duration-300 ease-out-expo hover:pl-3 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)_auto] md:gap-10"
-                  >
-                    <h3 className="font-display text-2xl font-medium sm:text-3xl">{servico.title}</h3>
-                    <p className="text-paper/65">{servico.short}</p>
-                    <span className="hidden h-10 w-10 items-center justify-center rounded-full border border-white/15 transition-colors duration-300 group-hover:border-paper group-hover:bg-paper group-hover:text-ink md:flex">
-                      <Arrow />
-                    </span>
-                  </Link>
-                </ScrollReveal>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-12">
+            <ServicesShowcase />
+          </div>
         </div>
       </section>
 

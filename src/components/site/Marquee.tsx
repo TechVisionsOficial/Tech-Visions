@@ -1,4 +1,4 @@
-const ITENS = ["Sites", "Landing pages", "Meta Ads", "Google Ads", "Órbita", "Helpdesk"];
+const ITENS = ["Sites", "Sistemas sob medida", "Inteligência artificial", "Automações", "Tráfego pago", "Meta Ads", "Google Ads", "Helpdesk", "Órbita"];
 
 /** Slow endless strip of what the agency does. Pauses on hover; static with reduced motion. */
 export function Marquee() {

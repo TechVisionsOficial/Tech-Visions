@@ -6,7 +6,7 @@ import { buttonPrimary, buttonSecondary } from "./buttons";
 
 /** Closing band shared by the inner pages: one clear way to start a conversation. */
 export function CTASection({
-  title = "Pronto para um site e campanhas que trazem cliente de verdade?",
+  title = "Pronto para ter tecnologia e marketing trazendo cliente de verdade?",
   text = "Conte um pouco sobre seu negócio e retornamos com um diagnóstico gratuito e uma proposta sob medida.",
   action = { href: "/contato", label: "Pedir diagnóstico" },
   whatsappMessage = "Olá! Vim pelo site e gostaria de saber mais sobre os serviços da Tech Visions.",

@@ -14,9 +14,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const SITE_URL = "https://www.techvisions.com.br";
-const TITLE = "Tech Visions — Sites e Tráfego Pago";
+const TITLE = "Tech Visions — Tecnologia, IA e Marketing";
 const DESCRIPTION =
-  "Desenvolvimento de sites e gestão de tráfego pago (Meta Ads e Google Ads) para negócios que querem crescer.";
+  "Soluções de tecnologia com IA (sites, sistemas e automações) e marketing com tráfego pago para negócios que querem crescer.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

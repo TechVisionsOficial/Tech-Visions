@@ -13,13 +13,13 @@ web
 
 ## Product Purpose
 
-A Tech Visions é uma agência de soluções digitais: desenvolve sites e landing pages, gerencia campanhas de Meta Ads e Google Ads, e cria ferramentas próprias. O site existe para que o visitante peça um diagnóstico gratuito e uma proposta — pelo formulário (que grava o lead direto no painel) ou pelo WhatsApp. Sucesso no site é contato qualificado; sucesso no painel é a equipe operar rápido e sem erro.
+A Tech Visions é uma agência de soluções digitais em duas frentes: **tecnologia com IA** (sites, landing pages, sistemas sob medida, automações e IA aplicada ao atendimento) e **marketing com tráfego pago** (Meta Ads, Google Ads, rastreamento e otimização), além de ferramentas próprias. O site não deve se apresentar como "só sites" nem como "só Google/Meta Ads" (pedido do dono, 2026-11-18). O site existe para que o visitante peça um diagnóstico gratuito e uma proposta — pelo formulário (que grava o lead direto no painel) ou pelo WhatsApp. Sucesso no site é contato qualificado; sucesso no painel é a equipe operar rápido e sem erro.
 
 ## Positioning
 
 Confirmado pelo dono como diferenciais que um concorrente não pode afirmar com verdade:
 
-- **Tudo num lugar só:** site, Meta Ads e Google Ads com o mesmo parceiro.
+- **Tudo num lugar só:** tecnologia, IA e marketing com o mesmo parceiro.
 - **Direto com quem faz:** o cliente fala com quem desenvolve e gerencia as campanhas, sem intermediário.
 - **Ferramentas próprias:** produtos como o Órbita, que a agência desenvolve e também usa para gerar resultado.
 - **Acompanhamento contínuo:** suporte e otimização depois da entrega.

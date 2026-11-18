@@ -7,7 +7,7 @@ import { SERVICOS } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Serviços",
-  description: "Sites e landing pages, Meta Ads e Google Ads com o mesmo parceiro, direto com quem faz.",
+  description: "Tecnologia com IA (sites, sistemas e automações) e marketing com tráfego pago, com o mesmo parceiro e direto com quem faz.",
   alternates: { canonical: "/servicos" },
 };
 
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const ETAPAS = [
   { title: "Diagnóstico gratuito", text: "Entendemos seu negócio, onde você atende e o que precisa melhorar." },
   { title: "Proposta sob medida", text: "Você recebe um plano com o que faz sentido para o seu momento." },
-  { title: "Execução", text: "Site no ar e campanhas rodando, com você falando direto com quem faz." },
+  { title: "Execução", text: "Tecnologia no ar e campanhas rodando, com você falando direto com quem faz." },
   { title: "Acompanhamento contínuo", text: "Suporte e otimização depois da entrega, não só até ela." },
 ];
 
@@ -24,8 +24,8 @@ export default function ServicosPage() {
   return (
     <>
       <PageHero
-        title="Do site à campanha que traz o cliente."
-        lead="Site, Meta Ads e Google Ads com o mesmo parceiro. Tudo conversa entre si: o anúncio leva para um site feito para converter, e o resultado volta para ajustar o anúncio."
+        title="Tecnologia e marketing no mesmo parceiro."
+        lead="Soluções de tecnologia com IA e marketing com tráfego pago, conversando entre si: o anúncio leva para um site feito para converter, a automação cuida do atendimento e o resultado volta para ajustar a campanha."
       />
 
       <section className="px-6 pb-12">
@@ -39,7 +39,7 @@ export default function ServicosPage() {
                 <h2 className="font-display text-3xl font-medium tracking-[-0.01em] sm:text-4xl">{servico.title}</h2>
                 <div>
                   <p className="max-w-[60ch] text-lg leading-relaxed text-paper/75">{servico.description}</p>
-                  <ul className="mt-8 grid gap-3 sm:grid-cols-3">
+                  <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                     {servico.points.map((point) => (
                       <li key={point} className="rounded-xl border border-white/10 px-4 py-3 text-sm text-paper/75">
                         {point}
