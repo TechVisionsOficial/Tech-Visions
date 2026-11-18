@@ -17,6 +17,7 @@ const SOURCE_LABELS: Record<string, string> = {
   manual: "Manual",
   referral: "Indicação",
   ads: "Anúncios",
+  helpdesk: "Lista de espera do helpdesk",
 };
 
 type Lead = {

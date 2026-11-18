@@ -9,7 +9,7 @@ export const LeadSchema = z.object({
   email: z.email({ error: "E-mail inválido." }).trim().optional().or(z.literal("")),
   phone: z.string().trim().optional().or(z.literal("")),
   message: z.string().trim().optional().or(z.literal("")),
-  source: z.enum(["site", "manual", "referral", "ads"]),
+  source: z.enum(["site", "manual", "referral", "ads", "helpdesk"]),
 });
 
 export type LeadFormState =

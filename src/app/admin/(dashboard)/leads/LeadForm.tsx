@@ -65,6 +65,7 @@ export function LeadForm({
           <option value="site">Site</option>
           <option value="referral">Indicação</option>
           <option value="ads">Anúncios</option>
+          <option value="helpdesk">Lista de espera do helpdesk</option>
         </select>
       </FormField>
       <FormField label="Mensagem" htmlFor="message" errors={state?.errors?.message}>
