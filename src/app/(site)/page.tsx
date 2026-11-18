@@ -6,8 +6,8 @@ import { Arrow } from "@/components/site/Arrow";
 import { ClientLogos } from "@/components/site/ClientLogos";
 import { CTASection } from "@/components/site/CTASection";
 import { FadeIn } from "@/components/site/FadeIn";
-import { Marquee } from "@/components/site/Marquee";
 import { ProductCard } from "@/components/site/ProductCard";
+import { ServiceStrip } from "@/components/site/ServiceStrip";
 import { ServicesShowcase } from "@/components/site/ServicesShowcase";
 import { SplitHeading } from "@/components/site/SplitHeading";
 import { buttonPrimary, buttonSecondary } from "@/components/site/buttons";
@@ -88,7 +88,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Marquee />
+      <ServiceStrip />
 
       <ClientLogos />
 

@@ -36,6 +36,13 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Never let the page move sideways, on any device. On the root element this
+   clips the viewport itself, so the sticky header keeps working. */
+html,
+body {
+  overflow-x: clip;
+}
+
 input,
 textarea {
   caret-color: currentColor;
@@ -68,21 +75,6 @@ p {
 
 /* ---------- Motion ---------- */
 
-/* Endless service strip. Duplicated content, translated by half its width. */
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.marquee-track {
-  animation: marquee 40s linear infinite;
-}
-
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-
 /* Page navigation: the old page lifts away, the new one settles in. */
 ::view-transition-old(.page) {
   animation: 180ms ease-in both page-out;
@@ -113,10 +105,6 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-  }
-
   ::view-transition-group(*),
   ::view-transition-old(*),
   ::view-transition-new(*) {
